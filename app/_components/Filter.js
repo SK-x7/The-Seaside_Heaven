@@ -72,6 +72,6 @@ function Button({filter,handleFilter,activeFilter,children}) {
             onClick={()=>handleFilter(filter)}
             >{`${children}`}</button>
 }
-v
+
 
 export default Filter
