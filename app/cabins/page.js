@@ -1,15 +1,20 @@
 import { Suspense } from "react"
 import CabinsList from "../_components/CabinsList"
+import Filter from "../_components/Filter";
 import Spinner from "../_components/Spinner"
 
 export const metadata={
     "title":"Cabins"
 }
 
+export const revalidate=3000;
+//this does not work because it is now rendering dynamically because of using searchParams  
 
 
-function Page() {
-  
+
+async function Page({searchParams}) {
+  const searchParamsObj=await searchParams;
+  const filter =searchParamsObj.capacity??"all"
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -23,10 +28,15 @@ function Page() {
         away from home. The perfect spot for a peaceful, calm vacation. Welcome
         to paradise.
       </p>
-
-      <Suspense fallback={<Spinner></Spinner>}>
+      <div className="flex justify-end mb-8">
         
-        <CabinsList></CabinsList>
+      <Filter></Filter>
+      </div>
+      
+      
+      <Suspense fallback={<Spinner></Spinner>} key={filter}>
+        
+        <CabinsList filter={filter}></CabinsList>
       </Suspense>
         
       </div>
