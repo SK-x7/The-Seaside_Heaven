@@ -13,6 +13,7 @@ const authConfig = {
     authorized({auth,request}){
         return !!auth?.user
     },
+    // a middleware that runs before user sign in
     async signIn({user,account,profile}){
         try {
           const existingGuest=await getGuest(user?.email);
@@ -28,6 +29,7 @@ const authConfig = {
             return false;
         }
     },
+    // a middleware that runs after user sign in
     async session({session}){
         
           const guest=await getGuest(session?.user?.email);
