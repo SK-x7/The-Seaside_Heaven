@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { auth, signIn, signOut } from "./auth";
 import { getBookings } from "./data-service";
 import { supabase } from "./supabase";
@@ -55,7 +56,7 @@ export async function deleteReservationAction(bookingId){
     const guestBookingIds = guestBookings.map((booking)=>booking.id);
     
     if(!guestBookingIds.includes(bookingId)){
-        throw new Error("You are not allowed to copy this booking");
+        throw new Error("You are not allowed to delete this booking");
     }
     
     const { error } = await supabase.from('bookings').delete().eq('id', bookingId);
@@ -66,4 +67,42 @@ export async function deleteReservationAction(bookingId){
   }
   
   revalidatePath('/account/reservations');
+}
+
+export async function updateReservationAction(formData){
+    
+    const numGuests=await formData.get("numGuests");
+    const observations=await formData.get("observations").slice(0,1000);
+    const bookingId=Number(await formData.get("id"));
+    const updatedFields={numGuests,observations};
+    console.log(updatedFields);
+    
+    const session= await auth();
+    
+    if(!session){
+        throw new Error("You must be logged in");
+    }
+    
+    const guestBookings = await getBookings(session?.user?.guestId);
+    
+    const guestBookingIds = guestBookings.map((booking)=>booking.id);
+    console.log(typeof bookingId);
+    
+    if(!guestBookingIds.includes(Number(bookingId))){
+        throw new Error("You are not allowed to update this booking");
+    }
+    
+    const { data, error } = await supabase
+    .from('bookings')
+    .update(updatedFields)
+    .eq('id', bookingId)
+    
+    if (error) {
+        console.error(error);
+        throw new Error('Booking could not be updated');
+    }
+    
+    revalidatePath(`/account/reservations/edit/${bookingId}`);
+    revalidatePath('/account/reservations');
+    return redirect("/account/reservations");
 }
