@@ -5,13 +5,13 @@ import { deleteReservationAction } from "../_lib/actions";
 import Spinner from "./Spinner";
 import SpinnerMini from "./SpinnerMini";
 
-function DeleteReservation({ bookingId }) {
-  const { isPending, startTransition } = useTransition();
+function DeleteReservation({ bookingId,handleDelete }) {
+  const [ isPending, startTransition ] = useTransition();
 
   function handleDeleteReservation(e) {
     e.preventDefault();
     if (confirm("Are you sure you want to delete your reservation")) {
-      startTransition(() => deleteReservationAction(bookingId));
+      startTransition(() => {handleDelete(bookingId)});
     }
   }
 

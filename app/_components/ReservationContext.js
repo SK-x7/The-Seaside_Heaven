@@ -8,12 +8,27 @@ const ReservationContext=createContext();
 const initialDates={from: null, to: null };
 
 function ReservationProvider({children}) {
-    const [range,setRange]=useState(initialDates);
-    const resetRange=()=>setRange(initialDates)
+   
     
+    
+    const [cabinRanges, setCabinRanges] = useState({});
+
+  const setRangeForCabin = (cabinId, range) => {
+    setCabinRanges((prev) => ({ ...prev, [cabinId]: range }));
+  };
+
+  const resetRangeForCabin = (cabinId) => {
+    setCabinRanges((prev) => {
+        const updatedRanges = { ...prev };
+    delete updatedRanges[cabinId] 
+    return updatedRanges;
+  });
+  };
     
     return (
-        <ReservationContext.Provider value={{range,setRange,resetRange}}>{children}</ReservationContext.Provider>
+        <ReservationContext.Provider value={{cabinRanges,
+            setRangeForCabin,
+            resetRangeForCabin,}}>{children}</ReservationContext.Provider>
     )
 }
 
