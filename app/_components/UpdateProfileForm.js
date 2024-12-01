@@ -3,6 +3,7 @@ import { useState } from "react";
 import { updateGuestAction} from "../_lib/actions";
 import { useFormStatus} from "react-dom";
 import SubmitButton from "./SubmitButton";
+import Image from "next/image";
 // import SelectCountry from "./SelectCountry";
 function UpdateProfileForm({children,guest}) {
     const [first, setfirst] = useState(1);
@@ -36,12 +37,15 @@ function UpdateProfileForm({children,guest}) {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label htmlFor="nationality">Where are you from?</label>
-             
-            <img
+             <div className="relative h-5 rounded-sm">
+              
+            <Image
               src={countryFlag}
               alt="Country flag"
-              className="h-5 rounded-sm"
-            />
+              className="object-cover"
+              fill
+              />
+              </div>
           </div>
 
           {/* <SelectCountry
