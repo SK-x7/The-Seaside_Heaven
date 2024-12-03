@@ -4,18 +4,18 @@ import Image from "next/image";
 function Cabin({cabin}) {
     const {name,image,description,maxCapacity}=cabin;
     return (
-        <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
-        <div className="relative scale-[1.15] -translate-x-3">
+        <div className="grid grid-cols-[3fr_4fr] px-1 sm:grid-cols-[3fr_4fr] gap-2 sm:gap-20 border border-primary-800 py-3 sm:px-10 mb-24 !w-full">
+        <div className="relative scale-[1.10] sm:scale-[1.15] -translate-x-3 bg-red-500">
             
           <Image fill className="flex-1 object-cover" src={image} alt={`Cabin ${name}`} />
         </div>
 
-        <div>
-          <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+        <div className=" !w-full">
+          <h3 className="text-accent-100 font-black text-3xl sm:text-7xl mb-5 translate-x-[-115px] sm:translate-x-[-254px] bg-primary-950  p-6 pb-1 sm:w-[150%] w-[100%]">
             Cabin{name}
           </h3>
 
-          <p className="text-lg text-primary-300 mb-10">
+          <p className=" text-lg text-primary-300 mb-10 w-full">
             <TextExpander>
               
             {description}

@@ -15,13 +15,13 @@ async function Page() {
   // console.log(cabins.length);
   const totalCabins=cabins?.length;
     return (
-      <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
-        <div className="col-span-3">
-          <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+      <div className="grid  grid-cols-1 grid-rows-auto gap-y-5 sm:grid-cols-5 sm:gap-x-24 sm:gap-y-32 text-lg items-center  ">
+        <div className="sm:col-span-3">
+          <h1 className="text-4xl mb-6 sm:mb-10 text-accent-400 font-medium">
             Welcome to The Wild Oasis
           </h1>
   
-          <div className="space-y-8">
+          <div className="space-y-3 sm:space-y-8">
             <p>
               Where nature&apos;s beauty and comfortable living blend seamlessly.
               Hidden away in the heart of the Italian Dolomites, this is your
@@ -42,25 +42,27 @@ async function Page() {
             </p>
           </div>
         </div>
-  
-        <div className="col-span-2">
+      {/* image container */}
+        <div className="sm:col-span-2">
           <Image
             src={image1}
             placeholder="blur"
             alt="Family sitting around a fire pit in front of cabin"
           />
         </div>
+      {/* image container */}
   
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <Image src={image2} placeholder="blur" alt="Family that manages The Wild Oasis" />
         </div>
+      {/* managed container */}
   
-        <div className="col-span-3">
-          <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <div className="sm:col-span-3">
+          <h1 className="text-4xl mb-6 sm:mb-10 text-accent-400 font-medium">
             Managed by our family since 1962
           </h1>
   
-          <div className="space-y-8">
+          <div className="space-y-3 sm:space-y-8">
             <p>
               Since 1962, The Wild Oasis has been a cherished family-run retreat.
               Started by our grandparents, this haven has been nurtured with love

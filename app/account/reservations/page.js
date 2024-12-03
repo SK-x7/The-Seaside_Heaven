@@ -15,7 +15,7 @@ export default async function Page() {
 
   return (
     <div>
-      <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+      <h2 className="font-semibold text-2xl text-accent-400 mb-5 sm:mb-7">
         Your reservations
       </h2>
 

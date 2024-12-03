@@ -24,10 +24,11 @@ export const metadata={
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={ `${josefin?.className} text-primary-100 min-h-screen flex flex-col bg-primary-950 antialiased`}>
+      {/* //FIXME -  */}
+      <body className={ `${josefin?.className} text-primary-100 !min-h-screen flex flex-col bg-primary-950 antialiased w-full`}>
         <Header></Header>
-        <div className="flex-1 px-8 py-12 relative grid w-full">
-        <main className="max-w-7xl mx-auto">
+        <div className="px-3 sm:px-8 py-12 relative grid grid-cols-1 !w-full flex-1">
+        <main className="max-w-7xl mx-auto !w-full h-full">
           
           <ReservationProvider>
             

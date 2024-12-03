@@ -50,15 +50,15 @@ export default async function Page({params}) {
     cabin;
 
   return (
-    <div className="max-w-6xl mx-auto mt-8">
-      <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
+    <div className="max-w-6xl mx-auto mt-8 !w-full">
+      {/* <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
         <div className="relative scale-[1.15] -translate-x-3">
             
           <Image fill className="flex-1 object-cover" src={image} alt={`Cabin ${name}`} />
         </div>
 
         <div>
-          <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+          <h3 className="text-accent-100 font-black text-3xl sm:text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
             Cabin {name}
           </h3>
 
@@ -92,8 +92,8 @@ export default async function Page({params}) {
             </li>
           </ul>
         </div>
-      </div>
-      <Cabin cabin={cabin}></Cabin>
+      </div> */}
+      <Cabin cabin={cabin}></Cabin> 
 
       <div>
         <h2 className="text-5xl font-semibold text-center mb-10 text-accent-400">

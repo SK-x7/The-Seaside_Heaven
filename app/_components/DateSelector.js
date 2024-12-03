@@ -4,6 +4,7 @@ import { differenceInDays, isPast, isSameDay, isWithinInterval } from "date-fns"
 import { useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { useIsMobile } from "../_utils/hooks/useMobile";
 import { useReservationContext } from "./ReservationContext";
 
 
@@ -20,6 +21,8 @@ function isAlreadyBooked(range, datesArr) {
 }
 
 function DateSelector({settings,cabin,bookedDates}) {
+  const isLgScreen=useIsMobile(500);
+  
  
   const {cabinRanges, setRangeForCabin, resetRangeForCabin}=useReservationContext();//testing
   const handleSelectRange = (newRange) => {
@@ -39,9 +42,9 @@ function DateSelector({settings,cabin,bookedDates}) {
   const {minBookingLength, maxBookingLength} = settings;
 
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col gap-5 sm:gap-0 sm:justify-between w-full">
       <DayPicker
-        className="pt-12 place-self-center"
+        className="pt-12  !w-full flex justify-center items-center"
         mode="range"
         onSelect={handleSelectRange}
         selected={displayRange}
@@ -51,33 +54,33 @@ function DateSelector({settings,cabin,bookedDates}) {
         fromDate={new Date()}
         toYear={new Date().getFullYear() + 5}
         captionLayout="dropdown"
-        numberOfMonths={2}
+        numberOfMonths={isLgScreen?1:2}
         disabled={(curDate)=>isPast(curDate)||bookedDates.some((date)=>isSameDay(date,curDate))}
       />
 
-      <div className="flex items-center justify-between px-8 bg-accent-500 text-primary-800 h-[72px]">
-        <div className="flex items-baseline gap-6">
+      <div className="flex items-center justify-between px-1 sm:px-8 bg-accent-500 text-primary-800 h-[72px] !w-full rounded-lg sm:rounded-none">
+        <div className="flex items-baseline  sm:gap-6">
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
               <>
-                <span className="text-2xl">${regularPrice - discount}</span>
+                <span className="sm:text-2xl">${regularPrice - discount}</span>
                 <span className="line-through font-semibold text-primary-700">
                   ${regularPrice}
                 </span>
               </>
             ) : (
-              <span className="text-2xl">${regularPrice}</span>
+              <span className="sm:text-2xl">${regularPrice}</span>
             )}
             <span className="">/night</span>
           </p>
           {numNights ? (
             <>
-              <p className="bg-accent-600 px-3 py-2 text-2xl">
+              <p className="bg-accent-600 px-2 sm:px-3 py-2 sm:text-2xl text-center">
                 <span>&times;</span> <span>{numNights}</span>
               </p>
-              <p>
-                <span className="text-lg font-bold uppercase">Total</span>{" "}
-                <span className="text-2xl font-semibold">${cabinPrice}</span>
+              <p className="text-center">
+                <span className="sm:text-lg font-bold uppercase">Total</span>{" "}
+                <span className="sm:text-2xl font-semibold">${cabinPrice}</span>
               </p>
             </>
           ) : null}
@@ -85,7 +88,7 @@ function DateSelector({settings,cabin,bookedDates}) {
 
         {range?.from || range?.to ? (
           <button
-            className="border border-primary-800 py-2 px-4 text-sm font-semibold"
+            className="border border-primary-800 py-2 px-3 sm:px-4 text-sm font-semibold"
             onClick={() => resetRangeForCabin(cabin.id)}
           >
             Clear

@@ -21,7 +21,7 @@ import { getBooking, getCabin } from "@/app/_lib/data-service";
           Edit Reservation #{reservationId}
         </h2>
   
-        <form action={updateReservationAction} className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+        <form action={updateReservationAction} className="bg-primary-900  sm:py-8 p-5 sm:px-12 text-lg flex gap-6 flex-col">
           <div className="space-y-2">
             <label htmlFor="numGuests">How many guests?</label>
             <select
