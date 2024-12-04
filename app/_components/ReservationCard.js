@@ -35,7 +35,7 @@ function ReservationCard({ booking,handleDelete }) {
         />
       </div>
 
-      <div className='flex-grow px-3 sm:px-6 py-3 flex flex-col gap-2 sm:gap-0'>
+      <div className='flex-grow px-3 md:px-6 py-3 flex flex-col gap-2 md:gap-4'>
         <div className='flex items-center justify-between'>
           <h3 className='text-base sm:text-xl font-semibold'>
             {numNights} nights in Cabin {name}
@@ -52,7 +52,7 @@ function ReservationCard({ booking,handleDelete }) {
           )}
         </div>
 
-        <p className='text-xs sm:text-lg text-primary-300'>
+        <p className='text-xs sm:text-sm md:text-lg text-primary-300'>
           {format(new Date(startDate), 'EEE, MMM dd yyyy')} (
           {isToday(new Date(startDate))
             ? 'Today'
@@ -60,7 +60,7 @@ function ReservationCard({ booking,handleDelete }) {
           ) &mdash; {format(new Date(endDate), 'EEE, MMM dd yyyy')}
         </p>
 
-        <div className='flex justify-between  gap-2 sm:gap-5 mt-auto items-baseline'>
+        <div className='flex justify-between  gap-2 md:gap-5 mt-auto items-baseline'>
           <p className='text-sm sm:text-xl font-semibold text-accent-400'>${totalPrice}</p>
           <p className='text-primary-300 sm:visible'>&bull;</p>
           <p className='text-sm sm:text-lg text-primary-300'>
@@ -74,11 +74,11 @@ function ReservationCard({ booking,handleDelete }) {
 
         {
           !isPast(startDate)&&
-      <div className='flex mx-2 mb-2 py-3 divide-x-2 divide-primary-800 rounded-lg border border-primary-800 sm:flex-col sm:border-l sm:border-primary-800 sm:w-[100px]'>
+      <div className='flex mx-2 mb-2 py-3 divide-x-2 divide-primary-800 rounded-lg border border-primary-800 md:flex-col md:border-l sm:border-primary-800 md:w-[100px]'>
           <>
         <Link
         href={`/account/reservations/edit/${id}`}
-        className='group flex justify-center sm:justify-start items-center gap-2 uppercase text-xs font-bold text-primary-300 sm:border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900'
+        className='group flex justify-center md:justify-start items-center gap-2 uppercase text-xs font-bold text-primary-300 md:border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900'
         >
           <PencilSquareIcon className='h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors' />
           <span className='mt-1'>Edit</span>

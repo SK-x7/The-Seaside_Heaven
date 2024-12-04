@@ -30,15 +30,22 @@ const navLinks = [
 
 function SideNavigation() {
   const pathname=usePathname();
-  const isMobile=useIsMobile();
+  const isMobile=useIsMobile(500);
   
   return (
     <nav className='border-r border-primary-900'>
       <ul className='flex flex-col gap-2 h-full text-lg'>
+        
+        
+        
+        
+        
+        
+        
         {navLinks.map((link) => (
           <li key={link.name} className="pr">
             <Link
-              className={`!p-2 rounded-md sm:rounded-none sm:w-auto sm:py-3 sm:px-5 hover:bg-primary-900 hover:text-primary-100 transition-colors flex !justify-center !items-center gap-4 font-semibold text-primary-200 
+              className={`!p-2 rounded-md sm:rounded-none sm:w-auto sm:py-3 sm:px-5 hover:bg-primary-900 hover:text-primary-100 transition-colors flex !justify-center !items-center min-[501px]:!justify-start gap-4 font-semibold text-primary-200 
               ${pathname===link.href&&"bg-primary-900"}
               `}
               href={link.href}
@@ -52,7 +59,7 @@ function SideNavigation() {
           </li>
         ))}
 
-        <li className='mt-auto'>
+        <li className='md:mt-auto'>
           
           <SignOutButton />
         </li>

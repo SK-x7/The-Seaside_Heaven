@@ -4,11 +4,11 @@ import { signOutAction } from '../_lib/actions';
 import { useIsMobile } from '../_utils/hooks/useMobile';
 
 function SignOutButton() {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile(500);
   return (
     <form action={signOutAction}>
       
-    <button className='py-3 px-5 hover:bg-primary-900 hover:text-primary-100 transition-colors flex items-center gap-4 font-semibold text-primary-200 w-full'>
+    <button className='!p-2 rounded-md sm:rounded-none sm:w-auto md:py-3 md:px-5 hover:bg-primary-900 hover:text-primary-100 transition-colors flex items-center gap-4 font-semibold text-primary-200 w-full justify-center min-[501px]:justify-start'>
       <ArrowRightStartOnRectangleIcon className='h-5 w-5 text-primary-600'></ArrowRightStartOnRectangleIcon>
       {
         !isMobile&&
