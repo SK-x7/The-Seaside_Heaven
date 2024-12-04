@@ -63,13 +63,13 @@ function DateSelector({settings,cabin,bookedDates}) {
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
               <>
-                <span className="sm:text-2xl">${regularPrice - discount}</span>
+                <span className="text-xl sm:text-2xl">${regularPrice - discount}</span>
                 <span className="line-through font-semibold text-primary-700">
                   ${regularPrice}
                 </span>
               </>
             ) : (
-              <span className="sm:text-2xl">${regularPrice}</span>
+              <span className="text-xl sm:text-2xl">${regularPrice}</span>
             )}
             <span className="">/night</span>
           </p>

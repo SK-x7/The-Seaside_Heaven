@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       {/* //FIXME -  */}
       <body className={ `${josefin?.className} text-primary-100 !min-h-screen flex flex-col bg-primary-950 antialiased w-full`}>
         <Header></Header>
-        <div className="px-3 sm:px-8 py-12 relative grid grid-cols-1 !w-full flex-1">
+        <div className="p-3 sm:px-8 sm:py-12 relative grid grid-cols-1 !w-full flex-1">
         <main className="max-w-7xl mx-auto !w-full h-full">
           
           <ReservationProvider>

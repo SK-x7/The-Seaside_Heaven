@@ -23,16 +23,17 @@ export default async function Page() {
         Update your guest profile
       </h2>
 
-      <p className="text-lg mb-8 text-primary-200">
+      <p className="text-base sm:text-lg mb-8 text-primary-200">
         Providing the following information will make your check-in process
         faster and smoother. See you soon!
       </p>
 
       <UpdateProfileForm guest={guest}>
+        
       <SelectCountry
             name="nationality"
             id="nationality"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="p-3 sm:px-5 sm:py-3  bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
             defaultCountry={guest?.nationality||nationality}
           />
       </UpdateProfileForm>

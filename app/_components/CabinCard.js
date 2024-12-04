@@ -6,7 +6,7 @@ function CabinCard({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
-    <div className="flex border-primary-800 border w-full !bg-green-700" >
+    <div className="flex border-primary-800 border w-full" >
       <div className="flex-1 relative">
         
       <Image
