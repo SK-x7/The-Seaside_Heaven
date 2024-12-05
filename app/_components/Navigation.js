@@ -7,7 +7,7 @@ export default async function Navigation() {
   // console.log(session)
   return (
     <nav className="z-10  text-sm sm:text-lg md:text-xl w-full">
-      <ul className="flex gap-4 justify-end md:justify-center sm:gap-5  md:gap-16 sm:!px-0 items-center">
+      <ul className="flex gap-4 justify-end sm:gap-5  md:gap-8 lg:gap-12 xl:gap-16 sm:!px-0 items-center">
         <li>
           <Link href="/cabins" className="hover:text-accent-400 transition-colors">
             Cabins

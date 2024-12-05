@@ -24,9 +24,11 @@ function ReservationCard({ booking,handleDelete }) {
   } = booking;
 
   return (
-    <div className='flex flex-col border border-primary-800'>
+    //FIXME - 
+    <div className='flex flex-col md:flex-row border  border-primary-800'>
       {/* image div */}
-      <div className='relative !h-32 sm:h-32 !aspect-square'>
+      <div className='relative h-32 sm:h-32 md:h-auto md:min-w-32 md:!max-w-32 !aspect-square md:bg-red-200 md:!aspect-auto md:flex-grow'>
+        
         <Image
           src={image}
           alt={`Cabin ${name}`}
@@ -74,11 +76,11 @@ function ReservationCard({ booking,handleDelete }) {
 
         {
           !isPast(startDate)&&
-      <div className='flex mx-2 mb-2 py-3 divide-x-2 divide-primary-800 rounded-lg border border-primary-800 md:flex-col md:border-l sm:border-primary-800 md:w-[100px]'>
+      <div className='flex mx-2 mb-2 md:mb-0 md:mx-0 py-3 divide-x-2 divide-primary-800 md:divide-x-0 rounded-lg md:rounded-none border border-primary-800 md:flex-col lg:sm:border-primary-800 md:w-[100px] md:justify-center'>
           <>
         <Link
         href={`/account/reservations/edit/${id}`}
-        className='group flex justify-center md:justify-start items-center gap-2 uppercase text-xs font-bold text-primary-300 md:border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900'
+        className='group flex justify-center md:justify-start items-center gap-2 uppercase text-xs font-bold text-primary-300 md:border-b border-primary-800 flex-grow  px-3 hover:bg-accent-600 transition-colors hover:text-primary-900'
         >
           <PencilSquareIcon className='h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors' />
           <span className='mt-1'>Edit</span>
