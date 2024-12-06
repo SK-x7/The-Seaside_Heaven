@@ -1,0 +1,59 @@
+// import Logo from "./_components/Logo";
+// import Navigation from "./_components/Navigation";
+import "@/app/_styles/globals.css";
+import {Josefin_Sans} from "next/font/google"
+import AdminNavigation from "./_components/AdminNavigation";
+// import Header from "./_components/Header";
+// import {ReservationProvider} from "./_components/ReservationContext";
+
+const josefin=Josefin_Sans({
+  subsets:["latin"],
+  display:"swap"
+})
+
+// console.log(josefin);
+
+export const metadata={
+  title:{
+    template:`%s | The Seaside Heaven`,
+    default:`Admin`
+  },
+  description:"Welcome to the seaside heaven.its a paradise located in between the hills and beautiful mountain away from all the noices."
+}
+
+
+// const StyledSidebar = styled.aside`
+//   background-color: var(--color-grey-0);
+//   padding: 3.2rem 2.4rem;
+//   border-right: 1px solid var(--color-grey-100);
+
+//   grid-row: 1 / -1;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 3.2rem;
+// `;
+
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      {/* //FIXME -  */}
+      <body className={ `${josefin?.className} text-primary-100 bg-primary-950 antialiased w-full`}>
+        <div className=" h-screen min-h-screen w-full flex flex-col">
+            <header className="bg-gray-600 w-full">
+            
+            </header>
+            <div className="w-full h-full flex">
+            {/* <aside className="bg-green-400 w-[16rem]"></aside> */}
+            <AdminNavigation></AdminNavigation>
+            <main className="flex-1">
+                <div className="">
+                    {children}
+                </div>
+            </main>
+            </div>
+        </div>
+      </body>
+    </html>
+  )
+}
