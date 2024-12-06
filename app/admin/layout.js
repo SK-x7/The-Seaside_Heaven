@@ -39,15 +39,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
       {/* //FIXME -  */}
       <body className={ `${josefin?.className} text-primary-100 bg-primary-950 antialiased w-full`}>
-        <div className=" h-screen min-h-screen w-full flex flex-col">
-            <header className="bg-gray-600 w-full">
-            
-            </header>
-            <div className="w-full h-full flex">
+        <div className=" h-screen min-h-screen w-full flex">
             {/* <aside className="bg-green-400 w-[16rem]"></aside> */}
             <AdminNavigation></AdminNavigation>
+            <div className="w-full h-full flex flex-col">
+                
+            <header className="bg-gray-600 w-full h-14 text-center">
+            This is header
+            </header>
             <main className="flex-1">
-                <div className="">
+                <div className="pt-10 px-12 pb-16">
                     {children}
                 </div>
             </main>

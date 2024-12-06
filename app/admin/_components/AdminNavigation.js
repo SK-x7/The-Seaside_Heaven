@@ -7,11 +7,12 @@ import {
   Cog6ToothIcon,
   HomeIcon,
   HomeModernIcon,
-  UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Logo from "../icon.png"
 
 const navLinks = [
   {
@@ -46,8 +47,16 @@ function AdminNavigation() {
   const isMobile=useIsMobile(500);
   
   return (
-    <nav className='border-r border-primary-900 w-[16rem]'>
-      <ul className='flex flex-col gap-2 text-lg'>
+    <nav className='border-r border-primary-900 w-[20rem] flex flex-col h-full py-5 gap-5'>
+        <div className='h-[10rem] w-full flex justify-center items-center'>
+            
+        <div className='relative h-full w-full'>
+            
+            <Image src={Logo} fill className='object-contain'/>
+        </div>
+        </div>
+      <ul className='flex flex-col gap-2 text-lg  h-full'>
+        
         
         
         
