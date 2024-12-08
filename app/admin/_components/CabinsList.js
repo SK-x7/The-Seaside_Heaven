@@ -24,9 +24,9 @@ function CabinsList({cabins}) {
           {
             filteredCabins&&filteredCabins.map((cabin)=>(
               <div key={cabin.id} className="bg-slate-600 grid grid-cols-[0.6fr_1.8fr_2.2fr_1fr_1fr_1fr] place-items-center justify-items-center">
-                <div className='relative aspect-[3/2] w-full'>
+                <div className='!relative aspect-[3/2] w-full'>
                   {/* <Image src={cabin.image} fill alt={`Cabin ${cabin.id} image`} className="object-cover"/> */}
-                  <Image src={cabin.image} fill alt={`Cabin image`} className="object-cover flex-1"/>
+                  <Image src={cabin.image} fill alt="Cabin-image" className="object-cover flex-1"/>
                 </div>
                 <span>{cabin.name}</span>
                 <span>Fits up to {cabin.maxCapacity} guests</span>

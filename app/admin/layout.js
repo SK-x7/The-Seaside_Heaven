@@ -2,6 +2,8 @@
 // import Navigation from "./_components/Navigation";
 import "@/app/_styles/globals.css";
 import {Josefin_Sans} from "next/font/google"
+import { Suspense } from "react";
+import Spinner from "../_components/Spinner";
 import AdminNavigation from "./_components/AdminNavigation";
 // import Header from "./_components/Header";
 // import {ReservationProvider} from "./_components/ReservationContext";
@@ -34,11 +36,9 @@ export const metadata={
 // `;
 
 
-export default function RootLayout({ children }) {
+export default function AdminRootLayout({ children }) {
   return (
-    <html lang="en">
-      {/* //FIXME -  */}
-      <body className={ `${josefin?.className} text-primary-100 bg-primary-950 antialiased w-full`}>
+    
         <div className=" h-screen min-h-screen w-full flex">
             {/* <aside className="bg-green-400 w-[16rem]"></aside> */}
             <AdminNavigation></AdminNavigation>
@@ -49,12 +49,14 @@ export default function RootLayout({ children }) {
             </header>
             <main className="flex-1">
                 <div className="pt-10 px-12 pb-16">
+                  <Suspense fallback={<Spinner></Spinner>}>
+                    
                     {children}
+                  </Suspense>
                 </div>
             </main>
             </div>
         </div>
-      </body>
-    </html>
+      
   )
 }

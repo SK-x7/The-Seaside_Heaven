@@ -5,9 +5,12 @@ import FilterCabins from '../_components/FilterCabins';
 
 async function page() {
   const cabins=await getCabins();
+  console.log("Cabins :",cabins);
+  
+  
+  
   
  
-  console.log("Cabins :",cabins);
   return (
     <div className='w-full flex flex-col gap-3'>
       <div className='w-full flex justify-between'>

@@ -52,7 +52,7 @@ function AdminNavigation() {
             
         <div className='relative h-full w-full'>
             
-            <Image src={Logo} fill className='object-contain'/>
+            <Image src={Logo} fill alt='Logo' className='object-contain'/>
         </div>
         </div>
       <ul className='flex flex-col gap-2 text-lg  h-full'>
