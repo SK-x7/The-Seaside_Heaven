@@ -1,6 +1,9 @@
+// import { getCabins } from '@/app/_lib/data-service'
 import React from 'react'
 
-function page() {
+async function page() {
+  // const cabins=await getCabins();
+  // console.log("Cabins :",cabins);
   return (
     <div>This is bookings page</div>
   )
