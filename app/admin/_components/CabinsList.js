@@ -31,7 +31,7 @@ function CabinsList({cabins}) {
       sortedCabins=filteredCabins;
     }
     
-    console.log(sortedCabins);
+    // console.log(sortedCabins);
     
   return (
     <div className='flex flex-col gap-10'>
