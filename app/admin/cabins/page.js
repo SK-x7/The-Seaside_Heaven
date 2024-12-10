@@ -2,10 +2,11 @@ import { getCabins } from '@/app/_lib/data-service';
 import Image from 'next/image';
 import CabinsList from '../_components/CabinsList';
 import FilterCabins from '../_components/FilterCabins';
+import SortCabins from '../_components/SortCabins';
 
 async function page() {
   const cabins=await getCabins();
-  console.log("Cabins :",cabins);
+  // console.log("Cabins :",cabins);
   
   
   
@@ -16,7 +17,11 @@ async function page() {
       <div className='w-full flex justify-between'>
         
         <span className='text-4xl font-semibold'>All Cabins</span>
+        <div className='flex gap-3'>
+          
         <FilterCabins></FilterCabins>
+        <SortCabins></SortCabins>
+        </div>
       </div>
     
         

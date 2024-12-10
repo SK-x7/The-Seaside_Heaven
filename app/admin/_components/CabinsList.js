@@ -7,7 +7,13 @@ import React from 'react'
 function CabinsList({cabins}) {
     const searchParams=useSearchParams();
     const currentFilter=searchParams.get("discount");
-    let filteredCabins;
+    const sortBy=searchParams.get("sortBy")||"name-asc";
+    const currentSortByOrder = sortBy.split("-")[1];
+    const multiplier = currentSortByOrder==="asc" ? 1 :-1;
+    const currentSortByValue = sortBy.split("-")[0];
+    console.log(currentSortByValue,multiplier);
+    
+    let filteredCabins,sortedCabins;
     if(currentFilter==="all"){
         filteredCabins=cabins;
     }else if(currentFilter==="no-discount"){
@@ -19,10 +25,18 @@ function CabinsList({cabins}) {
         filteredCabins=cabins;
     }
     
+    if(currentSortByValue!==null||currentSortByValue!==undefined){
+      sortedCabins = filteredCabins.sort((a,b)=>(a[currentSortByValue]-b[currentSortByValue])*multiplier);
+    }else{
+      sortedCabins=filteredCabins;
+    }
+    
+    console.log(sortedCabins);
+    
   return (
     <div className='flex flex-col gap-10'>
           {
-            filteredCabins&&filteredCabins.map((cabin)=>(
+            sortedCabins&&sortedCabins.map((cabin)=>(
               <div key={cabin.id} className="bg-slate-600 grid grid-cols-[0.6fr_1.8fr_2.2fr_1fr_1fr_1fr] place-items-center justify-items-center">
                 <div className='!relative aspect-[3/2] w-full'>
                   {/* <Image src={cabin.image} fill alt={`Cabin ${cabin.id} image`} className="object-cover"/> */}

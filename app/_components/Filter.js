@@ -31,7 +31,7 @@ function Filter() {
     const activeFilter = searchParams.get("capacity")??"all"
     
     async function handleFilter(filter) {
-        const params=await new URLSearchParams(searchParams);
+        const params=new URLSearchParams(searchParams.toString());
         params.set("capacity",filter);
         router.replace(`${pathname}?${params.toString()}`,{scroll:false})
           
