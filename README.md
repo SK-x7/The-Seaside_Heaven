@@ -5,7 +5,7 @@
 **The Seaside Heaven** is a web application built with **Next.js** and **Supabase** that allows users to book wooden cabins at a hotel. Users can view available cabins, make reservations, and manage their past bookings. This project was created as a learning experience while exploring **Next.js** and its ecosystem.
 
 ## Live Demo
-🚀 **Project Link**: *[Coming Soon]*
+🚀 **Project Link**: *https://the-seaside-heaven.vercel.app/*
 
 ## Features
 
